@@ -1,0 +1,60 @@
+package com.assignment.rmi.server;
+
+import java.io.IOException;
+import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
+import java.util.HashMap;
+import java.util.Hashtable;
+
+public class Player extends Database implements com.assignment.rmi.Player {
+	
+	public Player() {		
+	}
+
+	@Override
+	public String createPlayerAccount(String username, String firstName, String lastName, Integer age, String password, String IpAdress) throws RemoteException,ServerNotActiveException {
+		return this.createPlayer(username, firstName, lastName, age, password, IpAdress);
+
+	}
+
+	@Override
+	public Boolean playerSignIn(String username, String password, String IpAdress) throws RemoteException, ServerNotActiveException {
+		return this.signInPlayer(username, password, IpAdress);
+	}
+
+	@Override
+	public String playerSignOut(String username, String IpAdress) throws RemoteException, ServerNotActiveException {
+		return this.signOutPlayer(username, IpAdress);
+	}
+
+	@Override
+	public String limitValidation(String username) throws RemoteException, ServerNotActiveException {
+
+		return this.limit(username);
+	}
+
+	@Override
+	public String limitPass(String password) throws RemoteException, ServerNotActiveException {
+		
+		return this.limitPassword(password);
+	}
+
+	@Override
+	public String transferAccount(String username, String password, String oldIPAddress, String newIPAddress)
+			throws RemoteException {
+		
+		return null;
+	}
+
+	/*
+	 * @Override public String getAllData(String data, String ipAddress) throws
+	 * IOException { return this.getAllOperations(ipAddress, data); }
+	 * 
+	 * public static void main(String[] args) { Player player = new Player(); try {
+	 * System.out.println(player.getAllData(
+	 * "flskglsfjfsml|etggetG|rgergsfg|42|ergsfgsfg|132.1.2.1", "132"));
+	 * 
+	 * } catch (RemoteException e) { e.printStackTrace(); } }
+	 * 
+	 */
+}

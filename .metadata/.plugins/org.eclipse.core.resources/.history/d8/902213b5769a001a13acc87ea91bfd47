@@ -1,0 +1,40 @@
+package com.assignment.player;
+
+import java.rmi.RemoteException;
+
+public class Player extends Database implements com.assignment.rmi.Player {
+
+	@Override
+	public Boolean createPlayerAccount(String username, String firstName, String lastName, Integer age, String password,
+			String IpAddress) throws RemoteException {
+		try {
+			return this.createPlayer(username, firstName, lastName, age, password, IpAddress);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public Boolean playerSignIn(String username, String password, String IpAddress, Sting status) throws RemoteException {
+		
+		
+		return null;
+	}
+
+	@Override
+	public Boolean playerSignOut(String username, String iPAddress) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		Player p = new Player();
+		try {
+			p.createPlayer("sanjeevdhiman", "sanjeev", "dhiman", 30, "test", "93.1.44.251");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

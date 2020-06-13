@@ -1,0 +1,22 @@
+package com.assignment.rmi;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
+
+public interface Player extends Remote {
+
+	public String createPlayerAccount(String username, String firstName, String lastName, Integer age, String password, String IpAdress)
+			throws RemoteException, ServerNotActiveException;
+
+	public Boolean playerSignIn(String username, String password, String IpAdress) throws RemoteException, ServerNotActiveException;
+
+	public String playerSignOut(String username,String IpAdress) throws RemoteException, ServerNotActiveException;
+	
+	public String limitValidation(String username) throws RemoteException, ServerNotActiveException;
+	
+	public String limitPass(String password) throws RemoteException, ServerNotActiveException;
+	
+	public String getAllData(String data) throws RemoteException;
+
+}

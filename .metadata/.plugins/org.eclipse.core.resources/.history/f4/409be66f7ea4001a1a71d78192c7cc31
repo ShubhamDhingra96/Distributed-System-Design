@@ -1,0 +1,43 @@
+package com.assignment.rmi.server;
+
+import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
+import java.util.HashMap;
+import java.util.Hashtable;
+
+public class Player extends Database implements com.assignment.rmi.Player {
+	
+	public Player() {
+		
+	}
+
+	@Override
+	public String createPlayerAccount(String username, String firstName, String lastName, Integer age, String password, String IpAddress) throws RemoteException,ServerNotActiveException {
+		return this.createPlayer(username, firstName, lastName, age, password);
+
+	}
+
+	@Override
+	public Boolean playerSignIn(String username, String password) throws RemoteException, ServerNotActiveException {
+		return this.signInPlayer(username, password);
+	}
+
+	@Override
+	public String playerSignOut(String username) throws RemoteException, ServerNotActiveException {
+		return this.signOutPlayer(username);
+	}
+
+	@Override
+	public String limitValidation(String username) throws RemoteException, ServerNotActiveException {
+
+		return this.limit(username);
+	}
+
+	@Override
+	public String limitPass(String password) throws RemoteException, ServerNotActiveException {
+		
+		return this.limitPassword(password);
+	}
+		
+
+}

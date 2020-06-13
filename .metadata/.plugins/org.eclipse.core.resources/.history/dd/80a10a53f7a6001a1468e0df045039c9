@@ -1,0 +1,38 @@
+package com.assignment.rmi;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+import javafx.scene.chart.PieChart.Data;
+
+public class WriteText {
+	
+	String path = "C:\\jar\\example.txt";
+	
+	public Boolean writefile(String path, String data) {
+		try {
+			Files.write(Paths.get(path), data.getBytes(), StandardOpenOption.APPEND);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+		
+	}
+	
+	public static void main(String[] args) {
+		WriteText text = new WriteText();
+		try {
+			text.writefile("C:\\jar\\example.txt", "suhfnisunfusnfgos");	
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+}

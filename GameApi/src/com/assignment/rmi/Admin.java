@@ -1,0 +1,26 @@
+package com.assignment.rmi;
+
+import java.io.IOException;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
+import java.util.Hashtable;
+import java.util.Map;
+
+public interface Admin extends Remote {
+
+	public String createAdmin(String username, String firstName, String lastName, String password, String IpAddress)
+			throws RemoteException;
+
+	public Boolean playerSignIn(String username, String password, String IpAddress) throws RemoteException;
+
+	public Hashtable<String, Map<String, Integer>> getPlayerStatus() throws RemoteException, IOException;
+	
+	public Hashtable<String, String> getDirectory(String fn) throws RemoteException;
+	
+	public String suspendAccount( String adminUsername, String adminPassword, String adminIP, String usernameToSuspend) 
+									throws RemoteException;
+		
+	
+
+}
